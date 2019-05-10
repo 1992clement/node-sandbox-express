@@ -1,0 +1,11 @@
+{
+  "name": "todolist",
+  "version": "0.0.1",
+  "description": "Todolist project to fiddle around with nodeJS",
+  "main": "./public/main.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "4.16.4",
+    "twig": "^1.13.3"
+  }
+}
