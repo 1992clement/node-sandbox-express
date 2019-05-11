@@ -7,6 +7,7 @@ module.exports = {
     instances: 1,
     autorestart: true, // THIS is the important part, this will tell PM2 to restart your app if it falls over
     watch: process.env.NODE_ENV !== 'production' ? path.resolve(__dirname, 'public') : false,
-    max_memory_restart: '1G'
+    max_memory_restart: '1G',
+    log: './logs/combined.outerr.log'
   }]
 }

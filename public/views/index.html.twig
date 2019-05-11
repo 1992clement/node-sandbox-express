@@ -1,13 +1,47 @@
 <html>
 <head>
   <title>Todolist</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-  <h1>Todolist</h1>
-  Add a task :
-  <form method="post" action="/new">
-    <input type="text" name="taskName"/>
-    <button type="submit">Add</button>
-  </form>
+  <div class="content">
+    <h1 class="text-center">Todolist</h1>
+
+    <form class="form offset-md-3" method="post" action="/new">
+      Add a task :
+      <input type="text" name="taskName"/>
+      <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+
+    {% if todolist is defined %}
+      <div class="row">
+        <div class="offset-md-3 col-md-6">
+          <table class="table table-striped">
+            {% for i, task in todolist %}
+              <tr>
+                {% if task.done %}
+                  <td>
+                    <s>{{task.name}}</s>
+                  </td>
+                  <td>
+                    <a class="btn btn-sm btn-primary disabled" disabled>Mark as done</a>
+                    <a class="btn btn-sm btn-danger" href="/delete/{{i}}">Delete</a>
+                  </td>
+                {% else %}
+                  <td>
+                    {{task.name}}
+                  </td>
+                  <td>
+                    <a class="btn btn-sm btn-primary" href="/done/{{i}}">Mark as done</a>
+                    <a class="btn btn-sm btn-danger" href="/delete/{{i}}">Delete</a>
+                  </td>
+                {% endif %}
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    {% endif %}
+  </div>
 </body>
 </html>
