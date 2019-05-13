@@ -13,13 +13,13 @@ app.get('/', function(req, res){
   res.render('index.html.twig', {todolist: todolist});
 });
 
-app.get('/done/:taskid', function(req, res){
-  todolist[req.params.taskid].done = true;
+app.post('/done', function(req, res){
+  todolist[req.body.taskid].done = true;
   res.redirect(301, '/');
 });
 
-app.get('/delete/:taskid', function(req, res){
-  todolist.splice(req.params.taskid, 1);
+app.post('/delete', function(req, res){
+  todolist.splice(req.body.taskid, 1);
   res.redirect(301, '/');
 });
 

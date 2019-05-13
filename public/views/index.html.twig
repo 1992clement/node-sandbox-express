@@ -24,16 +24,25 @@
                     <s>{{task.name}}</s>
                   </td>
                   <td>
-                    <a class="btn btn-sm btn-primary disabled" disabled>Mark as done</a>
-                    <a class="btn btn-sm btn-danger" href="/delete/{{i}}">Delete</a>
+                    <button class="btn btn-sm btn-primary disabled" disabled>Mark as done</button>
+                    <form method="post" action="/delete">
+                      <input type="hidden" name="taskid" value="{{i}}"/>
+                      <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
                   </td>
                 {% else %}
                   <td>
                     {{task.name}}
                   </td>
                   <td>
-                    <a class="btn btn-sm btn-primary" href="/done/{{i}}">Mark as done</a>
-                    <a class="btn btn-sm btn-danger" href="/delete/{{i}}">Delete</a>
+                    <form method="post" action="/done">
+                      <input type="hidden" name="taskid" value="{{i}}"/>
+                      <button type="submit" class="btn btn-sm btn-primary">Mark as done</button>
+                    </form>
+                    <form method="post" action="/delete">
+                      <input type="hidden" name="taskid" value="{{i}}"/>
+                      <button type="submit" class="btn btn-sm btn-primary">delete</button>
+                  </form>
                   </td>
                 {% endif %}
               </tr>
