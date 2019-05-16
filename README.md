@@ -5,7 +5,7 @@ Little todolist project to fiddle with nodeJS and Express.
 ## Installation :
 ```
   git clone https://github.com/1992clement/node-sandbox-express.git
-  cd node-sandbox2
+  cd node-sandbox-express
   npm install
   docker-compose up -d
 ```
